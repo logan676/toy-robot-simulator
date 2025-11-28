@@ -1,0 +1,170 @@
+.command-input {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  max-width: 400px;
+}
+
+.mode-toggle {
+  display: flex;
+  gap: 8px;
+}
+
+.mode-btn {
+  flex: 1;
+  padding: 8px 16px;
+  border: 2px solid #667eea;
+  background: white;
+  color: #667eea;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.mode-btn.active {
+  background: #667eea;
+  color: white;
+}
+
+.mode-btn:hover:not(.active) {
+  background: #f0f0ff;
+}
+
+.single-input,
+.batch-input {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  font-family: monospace;
+  box-sizing: border-box;
+}
+
+.single-input:focus,
+.batch-input:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.batch-input {
+  resize: vertical;
+  min-height: 150px;
+}
+
+.button-row {
+  display: flex;
+  gap: 8px;
+}
+
+.execute-btn,
+.reset-btn {
+  flex: 1;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+.execute-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.execute-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.execute-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.reset-btn {
+  background: #e74c3c;
+  color: white;
+}
+
+.reset-btn:hover:not(:disabled) {
+  background: #c0392b;
+}
+
+.reset-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.quick-commands {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.quick-label {
+  font-size: 12px;
+  color: #666;
+  font-weight: 500;
+}
+
+.quick-btn {
+  padding: 6px 12px;
+  border: 1px solid #667eea;
+  background: white;
+  color: #667eea;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.quick-btn:hover:not(:disabled) {
+  background: #667eea;
+  color: white;
+}
+
+.quick-btn:disabled {
+  border-color: #ccc;
+  color: #ccc;
+  cursor: not-allowed;
+}
+
+.help-text {
+  font-size: 12px;
+  color: #666;
+  background: white;
+  padding: 12px;
+  border-radius: 4px;
+  border: 1px solid #eee;
+}
+
+.help-text strong {
+  display: block;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.help-text ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.help-text li {
+  margin-bottom: 4px;
+}
+
+.help-text code {
+  background: #f0f0f0;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-family: monospace;
+}

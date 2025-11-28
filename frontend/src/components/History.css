@@ -1,0 +1,81 @@
+.history {
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  max-width: 400px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.history h3 {
+  margin: 0 0 16px 0;
+  color: #333;
+  font-size: 16px;
+}
+
+.no-history {
+  color: #999;
+  font-style: italic;
+  text-align: center;
+  padding: 20px;
+}
+
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.history-item {
+  padding: 10px;
+  border-radius: 4px;
+  background: white;
+  border-left: 3px solid #ccc;
+}
+
+.history-item.success {
+  border-left-color: #27ae60;
+}
+
+.history-item.error {
+  border-left-color: #e74c3c;
+}
+
+.history-command {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.command-index {
+  font-size: 10px;
+  color: #999;
+  background: #f0f0f0;
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+
+.history-command code {
+  font-family: monospace;
+  font-weight: 600;
+  color: #333;
+}
+
+.history-result {
+  font-size: 12px;
+}
+
+.history-result .output {
+  color: #27ae60;
+  font-weight: 600;
+  font-family: monospace;
+}
+
+.history-result .message {
+  color: #666;
+}
+
+.history-item.error .message {
+  color: #e74c3c;
+}
