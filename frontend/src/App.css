@@ -1,0 +1,100 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  background: #f5f6fa;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.app-header h1 {
+  margin: 0 0 8px 0;
+  font-size: 28px;
+}
+
+.app-header p {
+  margin: 0;
+  opacity: 0.9;
+  font-size: 14px;
+}
+
+.error-banner {
+  background: #e74c3c;
+  color: white;
+  padding: 12px 20px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.app-main {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.grid-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.status {
+  background: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  font-size: 14px;
+  color: #333;
+}
+
+.controls-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.app-footer {
+  background: #333;
+  color: #999;
+  padding: 16px;
+  text-align: center;
+  font-size: 12px;
+}
+
+.app-footer p {
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .app-main {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .grid-section,
+  .controls-section {
+    width: 100%;
+    max-width: 420px;
+  }
+}

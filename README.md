@@ -1,75 +1,95 @@
-# Magentus Coding Challenge: Toy Robot Simulator
+# Toy Robot Simulator
 
-## Description
+A simulation of a toy robot moving on a 5x5 tabletop, built with TypeScript, Node.js (Express), and React.
 
-The task is to create a simulation of a toy robot moving on a square tabletop of dimensions 5 units x 5 units.
+## Original Challenge
 
-- There are no obstructions on the table surface.
-- The robot is free to move around the surface, but must not fall off the table.
-- Any movement that would cause the robot to fall must be ignored, while valid commands should still be accepted and executed.
+See [CHALLENGE.md](CHALLENGE.md) for the original problem description.
 
-## Application Requirements
+## Project Structure
 
-Your application must be able to read and process the following commands:
-
-- PLACE X,Y,F
-- MOVE
-- LEFT
-- RIGHT
-- REPORT
-
-## Command Details
-
-### PLACE X,Y,F
-- Places the robot on the table at coordinates (X, Y), facing direction F (NORTH, SOUTH, EAST, or WEST).
-- The origin (0,0) represents the south-west corner of the table.
-- The first valid command must be a PLACE command.
-- Any commands before a valid PLACE should be ignored.
-- Additional PLACE commands can be used to reposition the robot.
-
-### MOVE
-- Moves the robot one unit forward in the direction it is currently facing.
-
-### LEFT / RIGHT
-- Rotates the robot 90° in the specified direction without changing its position.
-
-### REPORT
-- Outputs the current X, Y, and F (facing direction) of the robot.
-- Output format is flexible, but standard console output is sufficient.
-
-## Constraints
-
-- The robot must not fall off the table.
-- Any move that would result in the robot falling should be ignored.
-- A robot not yet placed on the table should ignore all commands except PLACE.
-- Input may be provided via file or standard input, at your discretion.
-- Please include test data to demonstrate your solution.
-
-## Example Input and Output
-
-### Example A
 ```
-PLACE 0,0,NORTH
-MOVE
-REPORT
+toy-robot-simulator/
+├── backend/           # Node.js + Express + TypeScript API
+│   ├── src/
+│   │   ├── models/    # Robot, Table classes
+│   │   ├── services/  # CommandParser, Simulator
+│   │   └── index.ts   # Express server
+│   └── package.json
+├── frontend/          # React + TypeScript UI
+│   ├── src/
+│   │   ├── components/  # TableGrid, CommandInput, History
+│   │   ├── api/         # API client
+│   │   └── types/       # TypeScript interfaces
+│   └── package.json
+└── test-data/         # Example input files
 ```
-Output: `0,1,NORTH`
 
-### Example B
-```
-PLACE 0,0,NORTH
-LEFT
-REPORT
-```
-Output: `0,0,WEST`
+## Requirements
 
-### Example C
+- Node.js >= 18
+- npm
+
+## Installation & Running
+
+### Backend
+
+```bash
+cd backend
+npm install
+npm run dev
 ```
-PLACE 1,2,EAST
-MOVE
-MOVE
-LEFT
-MOVE
-REPORT
+
+The API server will start on http://localhost:3001
+
+### Frontend
+
+```bash
+cd frontend
+npm install
+npm start
 ```
-Output: `3,3,NORTH`
+
+The React app will start on http://localhost:3000
+
+## Running Tests
+
+```bash
+cd backend
+npm test
+```
+
+All 41 tests should pass.
+
+## API Endpoints
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/health` | Health check |
+| GET | `/api/state` | Get current robot state |
+| POST | `/api/command` | Execute a single command |
+| POST | `/api/commands` | Execute multiple commands (batch) |
+| POST | `/api/reset` | Reset the simulator |
+
+## Commands
+
+| Command | Description |
+|---------|-------------|
+| `PLACE X,Y,F` | Place robot at (X,Y) facing direction F (NORTH/SOUTH/EAST/WEST) |
+| `MOVE` | Move one unit forward in current direction |
+| `LEFT` | Rotate 90° counter-clockwise |
+| `RIGHT` | Rotate 90° clockwise |
+| `REPORT` | Output current position and direction |
+
+## Tech Stack
+
+- **Backend**: Node.js, Express, TypeScript
+- **Frontend**: React, TypeScript
+- **Testing**: Jest
+
+## Design Decisions
+
+1. **Separation of Concerns**: Robot logic is separated from the Table (boundary validation) and Simulator (orchestration)
+2. **Immutable Commands**: CommandParser produces immutable command objects
+3. **Session Support**: API supports multiple sessions for concurrent users
+4. **Visual Feedback**: Frontend provides real-time visualization of robot position and command history

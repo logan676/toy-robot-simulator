@@ -1,0 +1,33 @@
+# Test edge cases - commands before PLACE should be ignored
+MOVE
+LEFT
+RIGHT
+REPORT
+
+# Now place the robot
+PLACE 0,0,NORTH
+
+# Try to fall off north edge (should be ignored)
+MOVE
+MOVE
+MOVE
+MOVE
+MOVE
+
+# Should still be at 0,4
+REPORT
+
+# Turn and try to fall off east edge
+RIGHT
+MOVE
+MOVE
+MOVE
+MOVE
+MOVE
+
+# Should be at 4,4
+REPORT
+
+# Reposition robot
+PLACE 2,2,SOUTH
+REPORT
